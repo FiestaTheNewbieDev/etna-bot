@@ -1,4 +1,4 @@
-const EVENTS: string[] = [
+const EVENT_NAMES: string[] = [
   'apiRequest',
   'apiResponse',
   'applicationCommandCreate',
@@ -75,4 +75,4 @@ const EVENTS: string[] = [
   'webhookUpdate',
 ];
 
-export default EVENTS;
+export default EVENT_NAMES;

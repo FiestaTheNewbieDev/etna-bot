@@ -1,12 +1,15 @@
 import { ERROR_MESSAGES } from '@discord/constants/messages';
+import AbstractCommand from '@discord/misc/AbstractCommand';
 import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Client } from 'discord.js';
+import { Client, Collection } from 'discord.js';
 
 @Injectable()
 export class DiscordClientService implements OnModuleInit {
   public readonly client: Client;
   private logger = new Logger(DiscordClientService.name);
+
+  public commands = new Collection<string, AbstractCommand>();
 
   constructor(private readonly configService: ConfigService) {
     this.client = new Client({
@@ -15,8 +18,6 @@ export class DiscordClientService implements OnModuleInit {
   }
 
   async onModuleInit() {
-    this.logger.log('Module initialization...');
-
     const token = this.configService.get<string>('DISCORD_BOT_TOKEN');
 
     if (!token) {

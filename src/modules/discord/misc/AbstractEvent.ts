@@ -1,5 +1,3 @@
-import { Client } from 'discord.js';
-
 export default abstract class AbstractEvent {
   public readonly name: string;
   public readonly once: boolean;
@@ -9,5 +7,5 @@ export default abstract class AbstractEvent {
     this.once = once;
   }
 
-  public abstract execute(client: Client, ...args: any[]): void;
+  public abstract execute(...args: any[]): void;
 }

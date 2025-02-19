@@ -1,5 +1,7 @@
 export const MESSAGES = {
   ready: (username: string) => `${username} ready`,
+  'event-loaded': (eventName: string) => `Event loaded: ${eventName}`,
+  'command-loaded': (commandName: string) => `Command loaded: ${commandName}`,
 } as const;
 
 export const ERROR_MESSAGES = {
