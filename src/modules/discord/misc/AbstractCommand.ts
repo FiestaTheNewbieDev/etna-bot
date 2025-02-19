@@ -1,4 +1,4 @@
-import { CommandInteraction } from 'discord.js';
+import { CommandInteraction, Message } from 'discord.js';
 
 type Option = {
   name: string;
@@ -15,10 +15,10 @@ export default abstract class AbstractCommand {
   constructor(name: string, description: string, options?: Option[]) {
     this.name = name;
     this.description = description;
-    this.options = options;
+    this.options = options || [];
   }
 
-  public abstract execute(...args: any[]): void;
+  public abstract execute(message: Message, ...args: any[]): void;
   public abstract executeInteraction(
     interaction: CommandInteraction,
     ...args: any[]

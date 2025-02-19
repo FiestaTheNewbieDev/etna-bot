@@ -7,6 +7,7 @@ export const MESSAGES = {
 export const ERROR_MESSAGES = {
   'no-discord-bot-token': 'No discord bot token provided',
   'unknown-event': (eventName: string) => `Unknown event: ${eventName}`,
+  'unsupported-channel-type': 'Unsupported channel type',
 } as const;
 
 export const WARN_MESSAGES = {
